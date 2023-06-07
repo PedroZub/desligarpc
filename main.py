@@ -4,23 +4,17 @@ arg = int(input("Você deseja desligar ou abortar um desligamento?\n 1- Desligar
 
 if arg == 1:
     h = int(input("Quantas horas? "))
-    m = int(input("Quantos minutos? "))
+    m = (input("Quantos minutos? "))
 
-    s= (h * 3600) + (m * 60) 
+    if m == '':
+        s = h * 3600
+    else:
+        s = h * 3600 + int(m) * 60
 
     shutdown = f'shutdown /s /t {s}'
 
     subprocess.run(shutdown, shell=True)
+
 else:
-     abort = f'shutdown /a'
-
-     subprocess.run(abort, shell=True)
-
-
-
-
-
-          
-
-
-
+    abort = 'shutdown /a'
+    subprocess.run(abort, shell=True)
